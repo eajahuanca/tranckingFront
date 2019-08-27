@@ -8,7 +8,7 @@ import { jqxGridComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid
 })
 export class TrackingComponent implements OnInit {
 
-  @ViewChild('personasGrid') personasGrid: jqxGridComponent;
+  @ViewChild('personasGrid', {static:false}) personasGrid: jqxGridComponent;
 
   nombreImpresion:string = 'Texto de prueba';
   constructor() { }
