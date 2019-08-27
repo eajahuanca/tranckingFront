@@ -7,11 +7,11 @@ ul.timeline {
 /* Timeline vertical line */
 ul.timeline:before {
   content: ' ';
-  background: #fff;
+  background: rgb(248, 183, 5);
   display: inline-block;
   position: absolute;
   left: 16px;
-  width: 4px;
+  width: 6px;
   height: 100%;
   z-index: 400;
   border-radius: 1rem;
@@ -19,12 +19,14 @@ ul.timeline:before {
 
 li.timeline-item {
   margin: 20px 0;
+  border: 1px solid rgb(52, 156, 197);
+  border-left: 2px solid rgb(49, 156, 199);
 }
 
 /* Timeline item arrow */
 .timeline-arrow {
   border-top: 0.5rem solid transparent;
-  border-right: 0.5rem solid #fff;
+  border-right: 0.5rem solid rgb(52, 156, 197);
   border-bottom: 0.5rem solid transparent;
   display: block;
   position: absolute;
@@ -34,14 +36,14 @@ li.timeline-item {
 /* Timeline item circle marker */
 li.timeline-item::before {
   content: ' ';
-  background: #ddd;
+  background: rgb(248, 248, 248);
   display: inline-block;
   position: absolute;
   border-radius: 50%;
-  border: 3px solid #fff;
+  border: 5px solid rgb(248, 183, 5);;
   left: 11px;
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
   z-index: 400;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }

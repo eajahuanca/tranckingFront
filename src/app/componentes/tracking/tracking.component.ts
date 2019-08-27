@@ -8,7 +8,7 @@ import { jqxGridComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid
 })
 export class TrackingComponent implements OnInit {
 
-  @ViewChild('personasGrid') personasGrid: jqxGridComponent;
+  @ViewChild('personasGrid', {static: false}) personasGrid: jqxGridComponent;
 
   nombreImpresion:string = 'Texto de prueba';
   constructor() { }
@@ -60,7 +60,7 @@ export class TrackingComponent implements OnInit {
         { text: 'Contact Title', datafield: 'Title', width: 100 },
         { text: 'Address', datafield: 'Address', width: 100},
         { text: 'City', datafield: 'City', width: 100 },
-        { text: 'Country', datafield: 'Country', filtertype: 'checkedlist' }
+        { text: 'Country', datafield: 'Country', filtertype: 'checkedlist', filterable:true }
     ];
 
     visualizarEnTimeLine(event){
