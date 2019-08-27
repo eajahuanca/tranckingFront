@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { jqxGridComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid';
 
 @Component({
   selector: 'app-tracking',
@@ -7,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrackingComponent implements OnInit {
 
+  @ViewChild('personasGrid') personasGrid: jqxGridComponent;
+
+  nombreImpresion:string = 'Texto de prueba';
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   source: any =
     {
@@ -50,14 +53,21 @@ export class TrackingComponent implements OnInit {
     };
 
     dataAdapter: any = new jqx.dataAdapter(this.source);
-
     columns: any[] =
     [
-        { text: 'Company Name', datafield: 'CompanyName', width: 200 },
+        { text: 'Company Name', datafield: 'CompanyName', width: 200},
         { text: 'Contact Name', datafield: 'ContactName', width: 150 },
         { text: 'Contact Title', datafield: 'Title', width: 100 },
-        { text: 'Address', datafield: 'Address', width: 100 },
+        { text: 'Address', datafield: 'Address', width: 100},
         { text: 'City', datafield: 'City', width: 100 },
-        { text: 'Country', datafield: 'Country' }
+        { text: 'Country', datafield: 'Country', filtertype: 'checkedlist' }
     ];
+
+    visualizarEnTimeLine(event){
+      const selectedRowData = event.args.row.bounddata;
+      //esta variable puede ser un id para ir a traer
+      //la linea de tiempo del traking seleccionado
+      const nombre = selectedRowData.CompanyName;
+      this.nombreImpresion = nombre;
+    }
 }
