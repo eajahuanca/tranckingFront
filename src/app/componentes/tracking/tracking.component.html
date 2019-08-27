@@ -47,28 +47,30 @@
                     </div>
                   </div>
               </div>
+              <div class="card-footer">
+                  <jqxGrid
+                  #personasGrid
+                  [theme]="'darkblue'"
+                  [width]="'100%'"
+                  [source]="dataAdapter"
+                  [columns]="columns"
+                  [height]="450"
+                  [groupable]="true"
+                  [pageable]="true"
+                  [pagermode]="'simple'"
+                  [showfilterrow]="true"
+                  [columnsresize]="true"
+                  [sortable]="true"
+                  [autoshowfiltericon]="true"
+                  [filterable]="true"
+                  (onRowdoubleclick) = "visualizarEnTimeLine($event)"
+                >
+                </jqxGrid>
+              </div>
             </div>
-
           </div>
         </div>
-        <jqxGrid
-          #personasGrid
-          [theme]="'darkblue'"
-          [width]="'100%'"
-          [source]="dataAdapter"
-          [columns]="columns"
-          [height]="600"
-          [groupable]="true"
-          [pageable]="true"
-          [pagermode]="'simple'"
-          [showfilterrow]="true"
-          [columnsresize]="true"
-          [sortable]="true"
-          [autoshowfiltericon]="true"
-          [filterable]="true"
-          (onRowdoubleclick) = "visualizarEnTimeLine($event)"
-        >
-        </jqxGrid>
+
         <div class="bg-warning" style="border-radius:4px; padding:3px;">
           <code class="text-danger"><b>Nota: Para ver la Línea de Tiempo, hacer doble click sobre una fila</b></code>
         </div>
