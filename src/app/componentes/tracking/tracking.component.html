@@ -1,79 +1,48 @@
-<div class="row">
-    <div class="col-md-3">
-
-      <div class="row">
-        <div class="col-md-12">
-          <!-- Timeline -->
-          <ul class="timeline">
-            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
-              <div class="timeline-arrow"></div>
-              <h2 class="h5 mb-0">{{ nombreImpresion }}</h2><span class="small text-gray"><i
-                  class="fa fa-clock-o mr-1"></i>21 March, 2019</span>
-              <p class="text-small mt-2 font-weight-light">Lorem ipsum dolor sit amet....</p>
-            </li>
-            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
-              <div class="timeline-arrow"></div>
-              <h2 class="h5 mb-0">{{ nombreImpresion }}</h2><span class="small text-gray"><i
-                  class="fa fa-clock-o mr-1"></i>5 April, 2019</span>
-              <p class="text-small mt-2 font-weight-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Quisque scelerisque diam non nisi semper.</p>
-            </li>
-            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
-              <div class="timeline-arrow"></div>
-              <h2 class="h5 mb-0">{{ nombreImpresion }}</h2><span class="small text-gray"><i
-                  class="fa fa-clock-o mr-1"></i>18 August, 2019</span>
-              <p class="text-small mt-2 font-weight-light">Lorem ipsum dolor sit amet,...</p>
-            </li>
-          </ul><!-- End -->
-        </div>
-      </div>
-
-
+<div class="card">
+    <div class="card-header text-center">
+        <h2>Búsqueda de datos</h2>
+        <span>Mi pequeña descripcion de la busqueda de datos</span>
     </div>
-    <div class="col-md-9 mt-3">
+    <div class="card-body">
         <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <h4 class="text-center"><b>Búsqueda de datos por código tracking</b></h4>
-              </div>
-              <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-10">
-                        <input type="text" name="txtbuscar" id="txtbuscar" class="form-control" placeholder="Ingrese su código de búsqueda">
-                    </div>
-                    <div class="col-md-2">
-                      <button class="btn btn-primary" name="btnbuscar" id="btnbuscar"><i class="fa fa-search"></i> Buscar</button>
-                    </div>
-                  </div>
-              </div>
-              <div class="card-footer">
-                  <jqxGrid
-                  #personasGrid
-                  [theme]="'darkblue'"
-                  [width]="'100%'"
-                  [source]="dataAdapter"
-                  [columns]="columns"
-                  [height]="450"
-                  [groupable]="true"
-                  [pageable]="true"
-                  [pagermode]="'simple'"
-                  [showfilterrow]="true"
-                  [columnsresize]="true"
-                  [sortable]="true"
-                  [autoshowfiltericon]="true"
-                  [filterable]="true"
-                  (onRowdoubleclick) = "visualizarEnTimeLine($event)"
-                >
-                </jqxGrid>
-              </div>
+            <div class="col-md-10">
+                <input type="text" name="txtbuscar" id="txtbuscar" class="form-control"
+                    placeholder="Ingrese su código de búsqueda">
             </div>
-          </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary" name="btnbuscar" id="btnbuscar"><i class="fa fa-search"></i>
+                    Buscar</button>
+            </div>
         </div>
-
-        <div class="bg-warning" style="border-radius:4px; padding:3px;">
-          <code class="text-danger"><b>Nota: Para ver la Línea de Tiempo, hacer doble click sobre una fila</b></code>
-        </div>
-
     </div>
-  </div>
+    <div class="card-footer">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Timeline -->
+                <ul class="timeline">
+                    <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                        <div class="timeline-arrow"></div>
+                        <h2 class="h5 mb-0">{{ nombreImpresion }}</h2><span class="small text-gray"><i
+                                class="fa fa-clock-o mr-1"></i>21 March, 2019</span>
+                        <p class="text-small mt-2 font-weight-light">Lorem ipsum dolor sit amet....</p>
+                    </li>
+                    <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                        <div class="timeline-arrow"></div>
+                        <h2 class="h5 mb-0">{{ nombreImpresion }}</h2><span class="small text-gray"><i
+                                class="fa fa-clock-o mr-1"></i>5 April, 2019</span>
+                        <p class="text-small mt-2 font-weight-light">Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit.
+                            Quisque scelerisque diam non nisi semper.</p>
+                    </li>
+                    <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                        <div class="timeline-arrow"></div>
+                        <h2 class="h5 mb-0">{{ nombreImpresion }}</h2><span class="small text-gray"><i
+                                class="fa fa-clock-o mr-1"></i>18 August, 2019</span>
+                        <p class="text-small mt-2 font-weight-light">Lorem ipsum dolor sit amet,...</p>
+                    </li>
+                </ul><!-- End -->
+            </div>
+        </div>
+    </div>
+</div>
+
