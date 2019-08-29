@@ -4,15 +4,18 @@
         <span>Mi pequeña descripcion de la busqueda de datos</span>
     </div>
     <div class="card-body">
-        <div class="row">
-            <div class="col-md-10">
-                <input type="text" name="txtbuscar" id="txtbuscar" class="form-control"
-                    placeholder="Ingrese su código de búsqueda">
+        <div class="row text-center">
+            <div class="col-md-3"></div>
+            <div class="input-group text-center col-md-6">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-search"></i></span>
+                </div>
+                <input type="text" class="form-control" aria-label="Search" placeholder="Ingrese su código de búsqueda" #inputSearch>
+                <div class="input-group-append">
+                    <button class="btn btn-primary" (click)="buscarPorCodigo(inputSearch)">Buscar</button>
+                </div>
             </div>
-            <div class="col-md-2">
-                <button class="btn btn-primary" name="btnbuscar" id="btnbuscar"><i class="fa fa-search"></i>
-                    Buscar</button>
-            </div>
+            <div class="col-md-3"></div>
         </div>
     </div>
     <div class="card-footer">
@@ -20,25 +23,86 @@
             <div class="col-md-12">
                 <!-- Timeline -->
                 <ul class="timeline">
-                    <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                    <li *ngFor="let item of tracking" class="timeline-item bg-white rounded ml-3 p-4 shadow">
                         <div class="timeline-arrow"></div>
-                        <h2 class="h5 mb-0">{{ nombreImpresion }}</h2><span class="small text-gray"><i
-                                class="fa fa-clock-o mr-1"></i>21 March, 2019</span>
-                        <p class="text-small mt-2 font-weight-light">Lorem ipsum dolor sit amet....</p>
-                    </li>
-                    <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
-                        <div class="timeline-arrow"></div>
-                        <h2 class="h5 mb-0">{{ nombreImpresion }}</h2><span class="small text-gray"><i
-                                class="fa fa-clock-o mr-1"></i>5 April, 2019</span>
-                        <p class="text-small mt-2 font-weight-light">Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit.
-                            Quisque scelerisque diam non nisi semper.</p>
-                    </li>
-                    <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
-                        <div class="timeline-arrow"></div>
-                        <h2 class="h5 mb-0">{{ nombreImpresion }}</h2><span class="small text-gray"><i
-                                class="fa fa-clock-o mr-1"></i>18 August, 2019</span>
-                        <p class="text-small mt-2 font-weight-light">Lorem ipsum dolor sit amet,...</p>
+                        <span>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <button class="text-small btn btn-primary">
+                                        <i class="fa fa-calendar mr-1"></i> {{ item.fecha_registro | date: 'dd/mm/yyyy' }}
+                                        <i class="fa fa-clock-o ml-2"></i> {{ item.fecha_registro | date: 'HH:mm' }}
+                                    </button>
+                                </div>
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-danger"><b>ORIGEN: </b> {{ item.origen }}</button>
+                                </div>
+                                <div class="input-group-append">
+                                    <button class="btn btn-warning text-white"><b>DESTINO: </b>{{ item.destino }}</button>
+                                </div>
+                            </div>
+                        </span>
+                        <p class="mt-2"><i class="fa fa-user"></i><b> Nombre del Destinatario: </b>{{ item.dest_nombre }}</p>
+                        <p class="mb-0"><i class="fa fa-home"></i><b> Empresa: </b>{{ item.dest_empresa }}</p>
+                        <div class="row mt-1">
+                            <div class="col-md-6">
+                                <table class="table">
+                                    <tr>
+                                        <td colspan="2"><button class="btn btn-info btn-block text-left"><i class="fa fa-user"></i> Dirección</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Zona / Barrio:</b></td>
+                                        <td>{{ item.dest_zona_barrio }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Avenida / Calle: </b></td>
+                                        <td>{{ item.dest_calle_av }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Edificio: </b></td>
+                                        <td>{{ item.dest_edificio }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Piso: </b></td>
+                                        <td>{{ item.dest_piso }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Número: </b></td>
+                                        <td>{{ item.dest_nro }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Referencia: </b></td>
+                                        <td>{{ item.dest_referencia }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table class="table">
+                                    <tr>
+                                        <td colspan="2"><button class="btn btn-info btn-block text-left"><i class="fa fa-user"></i> Otros Datos</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Nro. Celular: </b></td>
+                                        <td>{{ item.dest_celular }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Correo electrónico: </b></td>
+                                        <td><button class="btn btn-success text-white"><b>{{ item.dest_correo }}</b></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Tipo: </b></td>
+                                        <td>{{ item.tipo_correspondencia }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Tipo Entrega: </b></td>
+                                        <td>{{ item.tipo_entrega }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Peso: </b></td>
+                                        <td><button class="btn btn-warning text-white"><b>{{ item.peso }}</b></button></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
                     </li>
                 </ul><!-- End -->
             </div>
