@@ -47,3 +47,11 @@ li.timeline-item::before {
   z-index: 400;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
+
+.texto-pequeno{
+    font-size: 12px;
+}
+
+.texto-mediano{
+    font-size: 13px;
+}

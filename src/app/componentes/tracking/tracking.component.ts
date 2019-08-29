@@ -9,9 +9,7 @@ import { TrackingService } from 'src/app/servicios/tracking.service';
 export class TrackingComponent implements OnInit {
 
     tracking: any;
-    tracking2: any;
-    nombreImpresion: string = 'Texto';
-    correcto: boolean = false;
+    correcto: string = 'false';
     mensaje: string = '';
 
     constructor(private trackingService: TrackingService) { }
@@ -19,17 +17,21 @@ export class TrackingComponent implements OnInit {
     ngOnInit() { }
 
     buscarPorCodigo(code: HTMLInputElement): void{
-        this.trackingService.searchByCodeTracking(code.value).subscribe(
-            response => { this.tracking2 = response as any }
-        );
-        console.log(this.tracking2);
-        this.tracking = this.datax;
-        this.correcto = this.tracking.success;
-        this.mensaje = this.tracking.mensaje;
-        this.tracking = this.tracking.data;
+        if(code.value.length>=5 && code.value.length<=15){
+            this.trackingService.searchByCodeTracking(code.value).subscribe(
+                response => {
+                    this.tracking = response as any;
+                    this.tracking = this.tracking.data;
+                    this.correcto = response.success;
+                    this.mensaje = response.mensaje;
+                }
+            );
+        }else{
+            this.mensaje = '* Código no valido / Código muy corto';
+        }
     }
 
-    datax: object = {
+    dataTest: object = {
         'data': [
             {
                 'dest_nombre': 'JOSE LUIS MERCADO',

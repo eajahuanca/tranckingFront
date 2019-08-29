@@ -24,9 +24,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/jqwidgets-scripts/jqwidgets/styles/jqx.base.css",
-              "node_modules/jqwidgets-scripts/jqwidgets/styles/jqx.darkblue.css"
+              "src/styles.css"
             ],
             "scripts": []
           },
