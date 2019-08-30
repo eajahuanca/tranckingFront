@@ -17,7 +17,7 @@ export class TrackingComponent implements OnInit {
     ngOnInit() { }
 
     buscarPorCodigo(code: HTMLInputElement): void{
-        if(code.value.length>=5 && code.value.length<=15){
+        if(code.value.length>=5 && code.value.length<=50){
             this.trackingService.searchByCodeTracking(code.value).subscribe(
                 response => {
                     this.tracking = response as any;

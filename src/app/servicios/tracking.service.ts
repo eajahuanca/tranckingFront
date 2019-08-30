@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class TrackingService {
 
-    //URL_API: string = 'http://localhost/api';
-    URL_API: string = 'https://restcountries.eu/rest/v2/all';
+    URL_API: string = 'http://express.correos.gob.bo/api';
+    //URL_API: string = 'https://restcountries.eu/rest/v2/all';
 
     constructor(private http: HttpClient) { }
 
@@ -16,7 +16,7 @@ export class TrackingService {
         let body = JSON.stringify({ codigo_correspondencia: code });
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         const options = { headers: headers };
-        //return this.http.post(`${this.URL_API}/datosLog/`, body, options);
-        return this.http.get(this.URL_API);
+        return this.http.post(`${this.URL_API}/datosLog`, body, options);
+        //return this.http.get(this.URL_API);
     }
 }
